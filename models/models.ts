@@ -1,5 +1,5 @@
 //  define the roles
-enum Roles {
+export enum Roles {
   ADMIN = "admin",
   WORKER = "worker",
 }

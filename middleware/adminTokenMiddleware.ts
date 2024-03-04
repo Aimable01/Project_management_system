@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { secrets } from "../secrets";
+import { Roles } from "../models/models";
 
 interface RequestExtended extends Request {
   user?: any;

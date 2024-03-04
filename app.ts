@@ -1,7 +1,15 @@
 import express, { Request, Response } from "express";
 import { pool } from "./database/db";
+import { authenticateToken } from "./middleware/adminTokenMiddleware";
+import { adminAuthRoutes } from "./routes/adminAuthRoutes";
+import { projectRouter } from "./routes/projectRoutes";
 
 const app = express();
+app.use(express.json());
+
+//  routes
+app.use("/admin/auth", adminAuthRoutes);
+app.use("/projects", authenticateToken, projectRouter);
 
 //  database connect
 pool
